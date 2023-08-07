@@ -48,6 +48,7 @@
   border: 2px solid var(--grey);
   transition: all 0.3s;
   font-weight: bold;
+  color: var(--input);
   text-align: center;
 }
 
@@ -69,7 +70,7 @@
 #input:hover {
   border: 2px solid var(--blue);
   scale: 1.01;
-  color: var(--grey);
+  color: var(--input);
 }
 
 #input:focus {
