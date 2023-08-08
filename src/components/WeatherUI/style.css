@@ -79,7 +79,7 @@ p {
   padding: 16px;
 }
 
-.form-container {
+.form-container.border.flex-column {
   padding-bottom: 26px;
 }
 
