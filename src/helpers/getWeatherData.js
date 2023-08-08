@@ -2,15 +2,15 @@ import axios from 'axios';
 
 export const getWeather = async (query) => {
   return await axios
-    .get(`${process.env.REACT_APP_API_URL}/current`, {
+    .get(`${process.env.REACT_APP_API_URL}/data/2.5/weather`, {
       params: {
-        access_key: process.env.REACT_APP_API_KEY,
-        query,
+        appid: process.env.REACT_APP_API_ID,
+        q: query,
+        units: 'metric',
       },
-      withCredentials: false,
     })
     .then((result) => {
-      return result;
+      return result.data;
     })
     .catch((e) => {
       throw e;

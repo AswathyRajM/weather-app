@@ -17,19 +17,18 @@ function WeatherUI({ handleClickBack, weather }) {
       <br />
       <div className='form-container border flex-column'>
         <img
-          src={weather.current?.weather_icons[0]}
+          src={`${process.env.REACT_APP_IMG_URL}${weather.weather[0].icon}@4x.png`}
           width={100}
-          placeholder='Weather icon'
+          alt='Weather icon'
         />
 
         <p className='temperature'>
-          {weather.current?.temperature}
+          {weather.main.temp}
           <sup>o</sup> C
         </p>
-        <p className='weather-desc'>{weather.current?.weather_descriptions}</p>
+        <p className='weather-desc'>{weather.weather[0].main}</p>
         <p className='location'>
-          <GrLocation /> {weather.location?.name},&nbsp;
-          {weather.location?.region}
+          <GrLocation /> {weather.name},&nbsp;{weather.sys.country}
         </p>
       </div>
       <div className='footer'>
@@ -38,7 +37,7 @@ function WeatherUI({ handleClickBack, weather }) {
             <LiaTemperatureHighSolid className='icon' />
             <div>
               <p className='value'>
-                {weather.current?.feelslike}
+                {weather.main.feels_like}
                 <sup>o</sup> C
               </p>
               <p>Feels like</p>
@@ -49,7 +48,7 @@ function WeatherUI({ handleClickBack, weather }) {
           <div className='flex'>
             <WiHumidity className='icon' />
             <div>
-              <p className='value'>{weather.current?.humidity}%</p>
+              <p className='value'>{weather.main.humidity}%</p>
               <p>Humidity</p>
             </div>
           </div>

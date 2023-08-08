@@ -16,19 +16,12 @@ function Weather() {
   const getWeatherhandler = async (query) => {
     try {
       let result = await getWeather(query);
-      if (
-        result.data?.error ||
-        !result ||
-        !result.data ||
-        !result.data.success
-      ) {
-        if (result.data.error.code === 615) {
-          setInputError('Please enter a valid location');
+      if (result.cod !== 200) {
+        if (result.cod === 404) {
+          setInputError('City not found!');
           setIsLoading(false);
-          return;
-        } else throw new Error(result.data.error);
-      }
-      setWeatherData(result.data);
+        } else throw new Error(result);
+      } else setWeatherData(result);
     } catch (e) {
       setError('Something went wrong please try again later');
     }
