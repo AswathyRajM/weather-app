@@ -7,16 +7,16 @@
 
 p {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .footer .icon {
-  font-size: 44px;
+  font-size: 40px;
   color: var(--blue);
 }
 
 .heading-icon .icon {
-  font-size: 28px;
+  font-size: 24px;
   cursor: pointer;
 }
 
@@ -41,7 +41,7 @@ p {
 }
 
 .temperature {
-  font-size: 62px;
+  font-size: 52px;
   margin: 0;
 }
 
@@ -77,7 +77,7 @@ p {
 
 .footer .footer-left,
 .footer .footer-right {
-  padding: 16px;
+  padding: 14px;
 }
 
 .form-container.border.flex-column {
