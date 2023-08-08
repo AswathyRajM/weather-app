@@ -3,6 +3,7 @@ import './style.css';
 import Loader from '../Loader';
 import { getWeather } from '../../helpers/getWeatherData';
 import ErrorComponent from '../ErrorComponent';
+import WeatherUI from '../WeatherUI';
 
 function Weather() {
   const [locationError, setLocationError] = useState(false);
@@ -16,11 +17,14 @@ function Weather() {
     try {
       let result = await getWeather(query);
       if (result.data.error) {
-        if (result.data.error.code === 615)
+        if (result.data.error.code === 615) {
           setInputError('Please enter a valid location');
-        else throw new Error(result.data.error);
+          setIsLoading(false);
+          return;
+        } else throw new Error(result.data.error);
       }
       setWeatherData(result.data);
+      console.log(result.data);
     } catch (e) {
       setError('Something went wrong please try again later');
     }
@@ -51,10 +55,20 @@ function Weather() {
     setIsLoading(false);
   };
 
+  const handleClickBack = () => {
+    setWeatherData(null);
+  };
+
   const handleInputChange = (city) => {
     setInputError(false);
-    setError(false);
+    setIsLoading(false);
+    setError(false);  
     setLocationError(false);
+    if (city.length === 0) {
+      setIsLoading(false);
+      clearTimeout(timer);
+      return;
+    }
     clearTimeout(timer);
     const newTimer = setTimeout(() => {
       setIsLoading(true);
@@ -67,7 +81,7 @@ function Weather() {
     <div className='container'>
       <div className='weather-container'>
         {weatherData ? (
-          <></>
+          <WeatherUI handleClickBack={handleClickBack} weather={weatherData} />
         ) : (
           <>
             <div className='heading border'>

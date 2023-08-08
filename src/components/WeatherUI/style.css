@@ -1,0 +1,89 @@
+.heading-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.footer .icon {
+  font-size: 44px;
+  color: var(--blue);
+}
+
+.heading-icon .icon {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  height: fit-content;
+}
+
+.flex-column {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.temperature {
+  font-size: 62px;
+  margin: 0;
+}
+
+.temperature sup {
+  font-size: 32px;
+}
+
+.weather-desc,
+.location,
+.footer p {
+  font-weight: 400;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.form-container.flex-column p {
+  margin: 8px;
+}
+
+p {
+  margin: 0;
+}
+
+.weather-desc,
+.location {
+  margin: 4px;
+}
+
+.footer .footer-right {
+  border-left: 2px solid var(--grey);
+}
+
+.footer .footer-left,
+.footer .footer-right {
+  padding: 16px;
+}
+
+.form-container {
+  padding-bottom: 26px;
+}
+
+.flex .value {
+  font-size: 24px;
+  font-weight: bold;
+}

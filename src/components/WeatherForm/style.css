@@ -17,6 +17,10 @@
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+.weather-container {
+  transition: all 5s ease-out;
+}
+
 .heading {
   color: var(--blue);
   height: fit-content;
