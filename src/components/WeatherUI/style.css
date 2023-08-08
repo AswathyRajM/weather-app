@@ -77,11 +77,11 @@ p {
 
 .footer .footer-left,
 .footer .footer-right {
-  padding: 14px;
+  padding: 8px;
 }
 
 .form-container.border.flex-column {
-  padding-bottom: 26px;
+  padding-bottom: 16px;
 }
 
 .flex .value {
