@@ -16,7 +16,12 @@ function Weather() {
   const getWeatherhandler = async (query) => {
     try {
       let result = await getWeather(query);
-      if (result.data.error) {
+      if (
+        result.data?.error ||
+        !result ||
+        !result.data ||
+        !result.data.success
+      ) {
         if (result.data.error.code === 615) {
           setInputError('Please enter a valid location');
           setIsLoading(false);
@@ -24,7 +29,6 @@ function Weather() {
         } else throw new Error(result.data.error);
       }
       setWeatherData(result.data);
-      console.log(result.data);
     } catch (e) {
       setError('Something went wrong please try again later');
     }
@@ -62,7 +66,7 @@ function Weather() {
   const handleInputChange = (city) => {
     setInputError(false);
     setIsLoading(false);
-    setError(false);  
+    setError(false);
     setLocationError(false);
     if (city.length === 0) {
       setIsLoading(false);
