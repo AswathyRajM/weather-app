@@ -5,6 +5,11 @@
   gap: 8px;
 }
 
+p {
+  margin: 0;
+  font-size: 16px;
+}
+
 .footer .icon {
   font-size: 44px;
   color: var(--blue);
@@ -59,10 +64,6 @@
 
 .form-container.flex-column p {
   margin: 8px;
-}
-
-p {
-  margin: 0;
 }
 
 .weather-desc,
